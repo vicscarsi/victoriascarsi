@@ -9,7 +9,7 @@
 <meta property="og:url" content="https://victoriascarsi.com/">
 <meta property="og:title" content="Victoria Scarsi | Content & Influencer Strategy">
 <meta property="og:description" content="17 years in advertising. Content, social media and influencer marketing strategy from Barcelona.">
-<meta property="og:image" content="https://victoriascarsi.com/img/og.jpg">
+<meta property="og:image" content="https://victoriascarsi.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://victoriascarsi.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -189,7 +189,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-s
   <div class="row" data-dir="1" data-w="Content|Social media|Digital marketing" aria-hidden="true"></div>
   <div class="row" data-dir="-1" data-w="Strategy|AI" aria-hidden="true"></div>
   <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Victoria Scarsi, influencer and content strategist</h1>
-  <div class="photo" id="photo"><img src="img/vic.jpg" alt="Portrait of Victoria Scarsi"></div>
+  <div class="photo" id="photo"><img src="./vic.jpg" alt="Portrait of Victoria Scarsi"></div>
   <div class="bar px"><span>Based in Barcelona · EU work permit<span class="cz"><span class="sep"> · </span>Italian, Brazilian &amp; Uruguayan citizen</span></span><span><i class="dot"></i>Open to new projects</span></div>
 </section>
 
@@ -288,7 +288,7 @@ const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const fine=matchMedia("(pointer: fine)").matches;
 const imp=C.reduce((a,c)=>a+c.imp,0),cr=C.reduce((a,c)=>a+c.cr,0);
 $("facts").innerHTML=[["17","years in advertising"],["2000+","creators activated"],["3","awards: Effie Latin America, Effie Brazil and Clube de Criação"]].map(f=>`<div><b>${f[0]}</b><span class="lbl">${f[1]}</span></div>`).join("");
-$("track").innerHTML=C.map((c,i)=>`<button type="button" class="it" data-i="${i}" aria-label="${esc(c.t)}, ${esc(c.cl)}, ${esc(c.y)}. Open case"><div class="fr"><img src="img/${c.id}.jpg" alt="" loading="${i<4?"eager":"lazy"}"></div><div class="nm"><b>${esc(c.t)}</b><span>${String(i+1).padStart(2,"0")}</span></div></button>`).join("");
+$("track").innerHTML=C.map((c,i)=>`<button type="button" class="it" data-i="${i}" aria-label="${esc(c.t)}, ${esc(c.cl)}, ${esc(c.y)}. Open case"><div class="fr"><img src="./${c.id}.jpg" alt="" loading="${i<4?"eager":"lazy"}"></div><div class="nm"><b>${esc(c.t)}</b><span>${String(i+1).padStart(2,"0")}</span></div></button>`).join("");
 /* hover sheet */
 const tip=$("tip"),cur=$("cur");let tx=-999,ty=-999,cx=-999,cy=-999,tOn=false;
 const fillTip=c=>{tip.innerHTML=`<h4>${esc(c.t)}</h4><div class="s">${esc(c.cl)} · ${esc(c.y)}<br>${esc(c.role)}</div><div class="r">${c.r.slice(0,2).map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join("")}</div><div class="cta">Click for the full case →</div>`};
@@ -302,7 +302,7 @@ const loopCur=()=>{cx+=(tx-cx)*(reduce?1:.35);cy+=(ty-cy)*(reduce?1:.35);cur.sty
 /* drawer */
 const dr=$("dr");let cur_i=0,lastFocus=null;
 const openD=i=>{cur_i=(i+C.length)%C.length;const c=C[cur_i];
- $("dc").innerHTML=`<img src="img/${c.id}.jpg" alt="${esc(c.t)} campaign frame"><span class="lbl">${String(cur_i+1).padStart(2,"0")} / ${C.length}</span><h3 id="dt">${esc(c.t)}</h3>
+ $("dc").innerHTML=`<img src="./${c.id}.jpg" alt="${esc(c.t)} campaign frame"><span class="lbl">${String(cur_i+1).padStart(2,"0")} / ${C.length}</span><h3 id="dt">${esc(c.t)}</h3>
  <dl class="meta"><div><dt>Client</dt><dd>${esc(c.cl)}</dd></div><div><dt>Agency</dt><dd>${esc(c.ag)}</dd></div><div><dt>Year</dt><dd>${esc(c.y)}</dd></div><div><dt>My role</dt><dd>${esc(c.role)}</dd></div></dl>
  <div class="tx"><div><h4>The brief</h4><p>${esc(c.ch)}</p></div><div><h4>The idea</h4><p>${esc(c.id2)}</p></div></div>
  <div class="res">${c.r.map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join("")}</div>
