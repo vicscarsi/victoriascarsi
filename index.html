@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Victoria Scarsi</title>
+<meta name="description" content="Victoria Scarsi: content, social media and influencer marketing strategist based in Barcelona. 17 years in advertising, award-winning work for TikTok, Unilever, Bayer, Mondelēz, BRF and On.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://victoriascarsi.com/">
+<meta property="og:title" content="Victoria Scarsi | Content & Influencer Strategy">
+<meta property="og:description" content="17 years in advertising. Content, social media and influencer marketing strategy from Barcelona.">
+<meta property="og:image" content="https://victoriascarsi.com/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://victoriascarsi.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE a strategist's studio site: monochrome, editorial, loud type and quiet copy
+   IDEA a campaign reel: roles slide past her portrait, then the work rolls sideways like a film strip
+   PICTURE her portrait inside three marquee rows; a pinned horizontal gallery of real campaign frames with a hover sheet that follows the cursor
+   COLOUR white #fff, ink #1a202c, black #0e0e0e, one green status dot; the campaign images bring the colour
+   TYPE Inter Tight only: 200 thin, 400 regular, 700 bold, 800 extra bold, 900 black
+   LAYOUT laptop: hero, About, Featured work divider, pinned gallery, manifesto, services, black contact; phone: same order, gallery becomes a swipe strip */
+:root{color-scheme:light;--bg:#fff;--ink:#1a202c;--blk:#0e0e0e;--mute:rgba(26,32,44,.56);--line:rgba(26,32,44,.14);--green:#38a169}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 "Inter Tight",system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+img{max-width:100%;display:block}
+.px{padding-inline:max(2.6vw,16px)}
+.lbl{font-size:13px;font-weight:400;color:var(--mute)}
+.up{text-transform:uppercase}
+/* cursor */
+@media(pointer:fine){html.cur,html.cur *{cursor:none!important}}
+#cur{position:fixed;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:200;transition:width .2s,height .2s,margin .2s;display:none}
+html.cur #cur{display:block}
+#cur.big{width:44px;height:44px;margin:-22px 0 0 -22px}
+/* loader */
+#ld{position:fixed;inset:0;z-index:150;background:var(--blk);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:0 max(2.6vw,16px) 28px;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+#ld.out{transform:translateY(-100%)}
+#ld p{margin:0;font-weight:800;font-size:clamp(26px,3.4vw,48px);letter-spacing:-.03em;text-transform:uppercase}
+#ld b{font-weight:200;font-size:clamp(56px,7vw,110px);letter-spacing:-.04em;line-height:1}
+/* header */
+header.top{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:flex-start;padding-block:20px;color:var(--ink);pointer-events:none;transition:color .3s}
+header.top{transition:color .3s,background .3s,padding .3s}
+header.top.sc{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-block:12px;pointer-events:auto}
+header.top.dk{color:#fff;background:rgba(14,14,14,.94)}
+header.top a{pointer-events:auto}
+.logo{font-weight:900;font-size:clamp(28px,2.6vw,38px);line-height:.86;letter-spacing:-.045em;text-transform:uppercase}
+.logo span{display:block}
+.logo span:first-child{color:#000}
+header.top.dk .logo span:first-child{color:#fff}
+.logo span+span{padding-left:1.1em;font-weight:300;color:#ef7539}
+.li:hover{background:var(--ink)!important;color:#fff!important}
+header.top.dk .li:hover{background:#fff!important;color:#000!important}
+.menu{display:flex;gap:18px;font-size:15px;font-weight:400}
+.menu a{padding:6px 0}
+.menu a:hover{text-decoration:underline;text-underline-offset:4px}
+/* hero */
+.hero{position:relative;height:100svh;min-height:620px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.row{white-space:nowrap;font-weight:900;font-size:clamp(84px,15vw,240px);line-height:.86;letter-spacing:-.05em;text-transform:uppercase;will-change:transform}
+.row:nth-child(2){font-weight:200;letter-spacing:-.06em}
+.row{display:flex;width:max-content}.row span{padding-right:.18em}.row em{font-style:normal;font-weight:200;padding-right:.18em;color:#ef7539}
+.photo{position:absolute;left:50%;top:50%;width:clamp(200px,21vw,330px);aspect-ratio:4/5;transform:translate(-50%,-50%);overflow:hidden;will-change:transform;background:#111}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05);transition:filter .6s}
+.photo:hover img{filter:none}
+.bar{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.02em}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:8px;box-shadow:0 0 0 4px rgba(56,161,105,.2)}
+/* sections */
+.sec{padding-block:clamp(80px,11vw,160px)}
+.idxl{display:block;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:clamp(28px,4vw,56px)}
+h2.big{font-weight:900;font-size:clamp(52px,7.4vw,112px);letter-spacing:-.05em;line-height:.9;margin:0 0 28px;text-transform:uppercase}
+.about p{font-size:clamp(21px,2.4vw,34px);font-weight:300;line-height:1.25;margin:0 0 28px;max-width:30em;letter-spacing:-.02em}
+.about p b{font-weight:700}
+.about p+p{margin-left:clamp(0px,6vw,96px)}
+.about p.cta{margin-left:0}
+.cz{color:var(--mute)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin-top:56px}
+.facts div{padding:18px 16px 0 0}
+.facts b{display:block;font-weight:200;font-size:clamp(48px,5.4vw,84px);letter-spacing:-.05em;line-height:1}
+/* featured divider */
+.div{border-block:1px solid var(--ink);overflow:hidden;padding:18px 0}
+.div div{white-space:nowrap;font-weight:900;font-size:clamp(56px,9vw,140px);letter-spacing:-.05em;line-height:.9;text-transform:uppercase;will-change:transform}
+.div i{font-style:normal;font-weight:200;margin:0 .25em}
+/* gallery */
+.hs{position:relative}
+.pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.track{display:flex;align-items:center;gap:clamp(28px,5vw,96px);padding-inline:max(2.6vw,16px) 20vw;will-change:transform}
+.it{flex:none;width:clamp(300px,40vw,640px);display:block;cursor:pointer;background:none;border:0;padding:0;text-align:left;color:inherit}
+.it:nth-child(3n+2){width:clamp(260px,30vw,480px);margin-top:14vh}
+.it:nth-child(3n){width:clamp(280px,34vw,560px);margin-bottom:16vh}
+.fr{overflow:hidden;aspect-ratio:16/10;background:#eee}
+.fr img{width:130%;max-width:none;height:100%;object-fit:cover;margin-left:-15%;will-change:transform;transition:scale .6s cubic-bezier(.2,.7,.2,1)}
+.it:hover .fr img{scale:1.04}
+.nm{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:14px}
+.nm b{font-weight:800;font-size:clamp(20px,1.8vw,28px);letter-spacing:-.03em;line-height:1.05}
+.nm span{font-size:13px;color:var(--mute);white-space:nowrap}
+.it:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
+.prog{position:absolute;left:max(2.6vw,16px);right:max(2.6vw,16px);bottom:26px;display:flex;align-items:center;gap:16px;font-size:12px;text-transform:uppercase}
+.prog div{flex:1;height:1px;background:var(--line);position:relative}
+.prog div i{position:absolute;left:0;top:0;height:1px;background:var(--ink);width:0}
+/* hover sheet */
+#tip{position:fixed;left:0;top:0;z-index:60;width:300px;background:var(--blk);color:#fff;padding:18px 18px 16px;pointer-events:none;opacity:0;transform:translate(-9999px,0);transition:opacity .2s}
+#tip.on{opacity:1}
+#tip h4{margin:0 0 2px;font-weight:800;font-size:20px;letter-spacing:-.03em;line-height:1.1}
+#tip .s{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:12px}
+#tip .r{display:grid;grid-template-columns:1fr 1fr;gap:10px;border-top:1px solid rgba(255,255,255,.18);padding-top:12px}
+#tip .r b{display:block;font-weight:200;font-size:30px;letter-spacing:-.04em;line-height:1}
+#tip .r span{font-size:12px;color:rgba(255,255,255,.6);line-height:1.25;display:block}
+#tip .cta{margin-top:14px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+/* drawer */
+#dr{position:fixed;inset:0;z-index:80;display:flex;justify-content:flex-end;visibility:hidden}
+#dr.on{visibility:visible}
+#dr .sh{position:absolute;inset:0;background:rgba(14,14,14,.5);opacity:0;transition:opacity .4s}
+#dr.on .sh{opacity:1}
+#dr .pn{position:relative;width:min(720px,100%);height:100%;overflow:auto;background:var(--bg);transform:translateX(100%);transition:transform .55s cubic-bezier(.7,0,.2,1);overscroll-behavior:contain}
+#dr.on .pn{transform:none}
+.pt{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px max(2.6vw,16px);background:var(--bg);border-bottom:1px solid var(--line)}
+.pt button{background:none;border:1px solid var(--line);border-radius:99px;min-height:44px;padding:0 16px;font-size:14px;color:var(--ink)}
+.pt button:hover{border-color:var(--ink)}
+.pt div{display:flex;gap:8px}
+.pc{padding:24px max(2.6vw,16px) 64px}
+.pc img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:26px}
+.pc h3{font-weight:900;font-size:clamp(36px,5vw,60px);letter-spacing:-.05em;line-height:.95;margin:0 0 22px;text-transform:uppercase}
+.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px;padding:16px 0;border-block:1px solid var(--line);margin:0 0 26px}
+.meta dt{font-size:12px;color:var(--mute);text-transform:uppercase}
+.meta dd{margin:2px 0 0;font-weight:700;font-size:15px}
+.tx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.tx h4{margin:0 0 6px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.tx p{margin:0;font-weight:300}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5em,1fr));border-top:1px solid var(--line);margin-top:30px}
+.res div{padding:16px 16px 0 0}
+.res b{display:block;font-weight:200;font-size:clamp(40px,4vw,56px);letter-spacing:-.05em;line-height:1;white-space:nowrap}
+.res span{font-size:14px;color:var(--mute);line-height:1.3;display:block;margin-top:4px}
+.aw{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.aw span{border:1px solid var(--ink);border-radius:99px;padding:4px 12px;font-size:13px}
+.vl{display:inline-block;margin-top:26px;font-weight:700;border-bottom:1px solid currentColor;padding-bottom:2px}
+/* manifesto */
+.mani p{font-weight:700;font-size:clamp(28px,3.6vw,54px);line-height:1.1;letter-spacing:-.035em;text-align:center;max-width:21em;margin:0 auto;text-wrap:balance}
+.mani .w{color:rgba(26,32,44,.14);transition:color .25s}
+.mani .w.on{color:var(--ink)}
+/* services */
+.svc{border-top:1px solid var(--line)}
+.sv{border-bottom:1px solid var(--line)}
+.sv button{all:unset;display:flex;flex-wrap:wrap;align-items:baseline;gap:.25em;width:100%;padding:14px 0;font:900 clamp(30px,6.2vw,96px)/1 "Inter Tight",sans-serif;letter-spacing:-.05em;text-transform:uppercase;box-sizing:border-box}
+.sv:nth-child(even) button{justify-content:flex-end}
+.sv button:focus{outline:none}.sv button:focus-visible{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px}
+.li{border:1px solid currentColor;border-radius:99px;padding:6px 14px!important}
+.li:hover{text-decoration:none!important;background:#fff;color:#000}
+.cl .li2{font-size:14px;border:1px solid rgba(255,255,255,.4);border-radius:99px;min-height:44px;padding:0 20px;display:inline-flex;align-items:center}
+.cl .li2:hover{background:#fff;color:var(--blk)}
+.cl .bt{display:flex;gap:10px;flex-wrap:wrap}
+.sv button i{font-style:normal;font-weight:200;color:var(--mute);font-size:.5em;letter-spacing:-.02em}
+.sv ul{list-style:none;margin:0;padding:0 0 22px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:17px;font-weight:300}
+.sv:nth-child(even) ul{justify-content:flex-end}
+.sv ul[hidden]{display:none}
+.phil{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,26em);margin-top:48px}
+.phil p{grid-column:2;margin:0;color:var(--mute);font-size:16px;font-weight:300}
+/* contact */
+.contact{background:var(--blk);color:#fff;padding-top:clamp(90px,12vw,170px)}
+.contact .lbl{color:rgba(255,255,255,.55);text-transform:uppercase}
+.contact h2{font-weight:900;font-size:clamp(64px,13vw,210px);letter-spacing:-.055em;line-height:.85;margin:12px 0 0;text-transform:uppercase}
+.contact h2 span{font-weight:200}
+.cl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center;border-top:1px solid rgba(255,255,255,.2);margin-top:44px;padding-top:26px;font-size:clamp(20px,2.4vw,34px);font-weight:300}
+.cl button{background:none;color:#fff;font-size:14px;border:1px solid rgba(255,255,255,.4);border-radius:99px;min-height:44px;padding:0 20px}
+.cl button:hover{background:#fff;color:var(--blk)}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;text-transform:uppercase;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.12);margin-top:clamp(90px,12vw,160px);padding-block:22px}
+/* narrow */
+@media(max-width:900px),(pointer:coarse){.hs{height:auto!important}.pin{position:relative;height:auto;padding-block:48px 72px}.track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;padding-right:max(2.6vw,16px);align-items:flex-start;-webkit-overflow-scrolling:touch;scroll-padding-inline:max(2.6vw,16px)}.prog{display:none}.mhint{display:block!important}.it,.it:nth-child(3n+2),.it:nth-child(3n){width:78vw;max-width:520px;margin:0;scroll-snap-align:start}.prog{display:none}#tip{display:none}}
+@media(max-width:900px){.cz{display:block;margin-top:4px}.cz .sep{display:none}.phil{grid-template-columns:minmax(0,1fr)}.phil p{grid-column:1}}
+@media(max-width:600px){.row{font-size:30vw}.photo{width:58vw}.tx,.meta{grid-template-columns:minmax(0,1fr)}.menu{gap:12px}.logo{font-size:26px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#ld{display:none}.row,.div div,.fr img{transform:none!important}.photo{transform:translate(-50%,-50%)!important}.mani .w{color:var(--ink)}#dr .pn,#dr .sh{transition:none}}
+</style>
+</head>
+<body>
+<div id="cur" aria-hidden="true"></div>
+<div id="ld" aria-hidden="true"><p id="ldf">Born in Canelones, Uruguay</p><b id="ldn">0%</b></div>
+
+<header class="top px">
+  <a class="logo" href="#top" aria-label="Victoria Scarsi, home"><span>Victoria</span><span>Scarsi</span></a>
+  <nav class="menu" aria-label="Main"><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a><a class="li" href="https://www.linkedin.com/in/victoria-scarsi/" target="_blank" rel="noopener">LinkedIn ↗</a></nav>
+</header>
+
+<section class="hero" id="top" aria-label="Intro">
+  <div class="row" data-dir="-1" data-w="Advertising|Influencer marketing" aria-hidden="true"></div>
+  <div class="row" data-dir="1" data-w="Content|Social media|Digital marketing" aria-hidden="true"></div>
+  <div class="row" data-dir="-1" data-w="Strategy|AI" aria-hidden="true"></div>
+  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Victoria Scarsi, influencer and content strategist</h1>
+  <div class="photo" id="photo"><img src="img/vic.jpg" alt="Portrait of Victoria Scarsi"></div>
+  <div class="bar px"><span>Based in Barcelona · EU work permit<span class="cz"><span class="sep"> · </span>Italian, Brazilian &amp; Uruguayan citizen</span></span><span><i class="dot"></i>Open to new projects</span></div>
+</section>
+
+<section class="sec px about" id="about">
+  <span class="idxl lbl">(01)</span>
+  <h2 class="big">About</h2>
+  <p><b>Hi! My name is Victoria, but you can call me Vic.</b> I started my career in advertising 17 years ago, and I haven’t stopped since.</p>
+  <p>I’ve worked across different disciplines within advertising before finding my place in the digital world, creating strategies for social media, content, and influencer marketing. I’m also an AI enthusiast, constantly studying new tools and possibilities to improve the way I work and evolve my practice every day.</p>
+  <p class="cta"><b>I invite you to explore my work and get to know a little more about what I do!</b></p>
+  <div class="facts" id="facts"></div>
+</section>
+
+<div class="div" id="work" aria-hidden="true"><div id="divt">Featured work<i>/</i>Featured work<i>/</i>Featured work<i>/</i>Featured work<i>/</i></div></div>
+<h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Featured work</h2>
+
+<section class="hs" id="hs" aria-label="Featured work, 11 cases">
+  <div class="pin" id="pin">
+    <p class="lbl px mhint" style="display:none;margin:0 0 14px">Swipe to explore, tap a case to open it</p>
+    <div class="track" id="track"></div>
+    <div class="prog"><span id="pn">01 / 11</span><div><i id="pb"></i></div><span>Hover for details, click to open</span></div>
+  </div>
+</section>
+
+<section class="sec px mani" aria-label="How I work"><p id="mani">Brands don't need more posts. They need a seat in the conversation people are already having. From a telenovela accent to an NBA dribble, the method stays the same: culture first, creators who belong there, and numbers that prove it moved.</p></section>
+
+<section class="sec px" aria-label="Services" style="padding-top:0">
+  <span class="idxl lbl">(03) What I do. Click a line.</span>
+  <div class="svc" id="svc"></div>
+  <div class="phil"><p>Creative and observant by nature, I follow trends closely and stay plugged into culture across retail, food, home care, fashion and pharma.</p></div>
+</section>
+
+<section class="contact px" id="contact">
+  <span class="lbl">For projects, collaborations or roles, reach out</span>
+  <h2>Get in <span>touch</span></h2>
+  <div class="cl"><a href="mailto:victoriahscarsi@icloud.com">victoriahscarsi@icloud.com</a><span class="bt"><button type="button" id="copy">Copy email</button><a class="li2" href="https://www.linkedin.com/in/victoria-scarsi/" target="_blank" rel="noopener">LinkedIn ↗</a></span><span>Barcelona, Spain</span></div>
+  <footer><span>© 2026 Victoria Scarsi · <a href="https://www.linkedin.com/in/victoria-scarsi/" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px">LinkedIn</a></span><span>Content · Creative · Strategy · Influencer marketing</span></footer>
+</section>
+
+<div id="tip" aria-hidden="true"></div>
+<div id="dr" role="dialog" aria-modal="true" aria-labelledby="dt"><div class="sh" id="dsh"></div><div class="pn" id="dpn">
+  <div class="pt"><button type="button" id="dx">Close ✕</button><div><button type="button" id="dp" aria-label="Previous case">←</button><button type="button" id="dn" aria-label="Next case">→</button></div></div>
+  <div class="pc" id="dc"></div></div></div>
+
+<script>
+{
+const C=[
+{id:"cloudmonster",t:"Cloudmonster 3",cl:"On Running",ag:"Mfield",y:2026,role:"Influencer Marketing Strategy Manager, Content Manager",
+ch:"Launch the Cloudmonster 3 in Brazil and deepen On's bond with the running community.",
+id2:"Creative freedom, real training-day stories and paid amplification. Thirteen creators from the running scene took the shoe through workouts, races and daily life on Instagram and TikTok.",
+r:[["25.8M","people reached"],["42.6M","impressions and views"],["93.6K","interactions"],["95.7%","positive or neutral sentiment"],["75","pieces of content"]],u:"cloudmonster-3",imp:42.6,cr:13},
+{id:"halls",t:"Respira Fundo & Beija Sapo MTV",cl:"Halls, Mondelēz Brazil",ag:"Mfield",y:2023,role:"Influencer Marketing Strategist",
+ch:"Reinforce Halls' emotional benefit in the territory of courage and create wide-reach buzz with Gen Z and Millennials.",
+id2:"We revived Beija Sapo, MTV's 2000s dating show, as a spin-off about party moments that need a deep breath of courage, hosted by Valentina Bandeira with Daniella Cicarelli and five viral profiles.",
+r:[["50M+","impressions"],["227K+","interactions"],["+402%","amplification above estimate"],["+92%","viral-profile impressions vs estimate"]],u:"halls-respira-fundo--and-beija-sapo-mtv",imp:50,cr:7},
+{id:"ppk",t:"PPK tem cheiro de PPK",cl:"Gino-Canesten, Bayer",ag:"MullenLowe Brasil / IPG Mediabrands",y:"2022–23",role:"Content Manager, Influencer Marketing Strategist",
+ch:"Extend the #PPKSEMTABU conversation on intimate health from candidiasis to bacterial vaginosis, a flora imbalance many women don't know about.",
+id2:"\"PPK tem cheiro de PPK\": a change in natural odour is the main sign. Sabrina Sato fronted the Gino-Canesten Balance launch and ten creators received a perfume-style kit that held only water.",
+r:[["601.2M","impressions"],["+120%","searches for vaginosis"],["+200%","sales above forecast"]],
+aw:["Effie Awards Latin America 2023","Effie Awards Brazil 2023","Clube de Criação 2023, 2 Bronzes"],u:"ppk-tem-cheiro-de-ppk-gino-canesten-bayer",imp:601.2,cr:11},
+{id:"nba",t:"NBA pede Sadia",cl:"Sadia, BRF",ag:"Mfield",y:2022,role:"Influencer Marketing Strategist",
+ch:"Two years into its NBA sponsorship, Sadia wanted its products at the heart of NBA House, the core of the partnership.",
+id2:"The Brutal Challenge: pizza spinning, nugget tray and S-dribble. 44 creators, including Pod Pah's Igão and Mítico, plus a PR squad of 16 pushed it. Best videos won NBA Store vouchers, Game Night tickets and a trip to the 2024 All-Star Game.",
+r:[["5.2M+","impressions"],["139K+","interactions"],["146","assets"],["60","creators"]],u:"nba-pede-sadia",imp:5.2,cr:60},
+{id:"pantanes",t:"Pantanês Accent",cl:"OMO Brazil, Unilever",ag:"MullenLowe Brasil / IPG Mediabrands",y:2022,role:"Content Strategist, Influencer Marketing Strategist",
+ch:"Join the national conversation around the Pantanal remake, whose accent had the whole country talking like its characters.",
+id2:"Own the Pantanal accent before any other brand did, with a squad of twelve creators riding the show's peak.",
+r:[["95M","impacts nationwide"],["3M+","mentions on X"],["21M","impacts on target"],["12","creators"]],u:"pantanes-accent-omo-brazil-unilever",imp:0,cr:12},
+{id:"cif",t:"#CIFLimpaPraMim",cl:"CIF, Unilever Brazil",ag:"MullenLowe Brasil / IPG Mediabrands",y:2022,role:"Content Manager, Influencer Marketing Strategist",
+ch:"Link CIF to a torture test that proves the product really works.",
+id2:"Partner with Faxina Milgrau, Ellen Milgrau's project that cleans the homes of people facing economic, mental and social hardship, with the brand built into her original content. The partnership is still running.",
+r:[["42M+","views"],["13M+","users reached in 3 weeks"],["850K+","engagements"]],aw:["Ellen Milgrau won #CleanTok at the TikTok Awards"],u:"ciflimpapramim",imp:42,cr:1},
+{id:"casexp",t:"Casillero del Diablo Experience",cl:"Concha y Toro",ag:"MullenLowe Brasil / IPG Mediabrands",y:2022,role:"Content Manager, Influencer Marketing Strategist",
+ch:"Turn the brand's 130-year legend into something people could live, not only watch.",
+id2:"A two-day immersive event in São Paulo through wine, art, music and food, with digital content before, during and after, and top creators producing on site.",
+r:[["2","days, São Paulo"],["130+","years of legend"]],aw:["Sommelier Andreia Berthault","Rael","Douglas Silva","Black Albino","Artist Gian Lucca Ewbank","Descorcha Corner pop-up"],u:"casillero-del-diablo-experience-1",imp:0,cr:0},
+{id:"somos21",t:"Poder do Somos 2021",cl:"OMO, Unilever Brazil",ag:"MullenLowe Brasil / IPG Mediabrands",y:2021,role:"Content Manager, Influencer Marketing Strategist",
+ch:"Criança Esperança, one of Brazil's largest social projects, usually relies on a TV show to drive donations. 2021 called for a new way to act together.",
+id2:"OMO became SOMOS. Special-edition packs carried the song SOMOS by Alok and Melim, and #1play1donation turned every stream into support, inside an always-on plan across Instagram and TikTok.",
+r:[["2.2B","impacts"],["260M","impressions"],["87M","people impacted"],["35M","viewers of the TV performance"],["26K+","children supported in 105 projects"],["5K+","playlists"]],u:"poder-do-somos-2021-omo-unilever-brazil",imp:260,cr:0},
+{id:"verao",t:"Verão Lendário",cl:"Casillero del Diablo, Concha y Toro",ag:"MullenLowe Brasil / IPG Mediabrands",y:2021,role:"Content Strategist, Influencer Marketing Strategist",
+ch:"Bring Casillero del Diablo's white and rosé wines into the Brazilian summer.",
+id2:"A legendary summer: six Brazilian creators invited their audiences to live one, through an influencer activation.",
+r:[["3M+","impressions"],["450K+","likes"],["15","feed posts"]],u:"verao-lendario-casillero-del-diablo",imp:3,cr:6},
+{id:"somos20",t:"Poder do Somos 2020",cl:"OMO Brazil, Unilever",ag:"MullenLowe Brasil / IPG Mediabrands",y:2020,role:"Content Manager",
+ch:"After years of \"Dirt is good\", OMO's bond with consumers was fading, and the pandemic brought doubt, insecurity and economic crisis.",
+id2:"A movement for collective strength: a new disinfectant line, the Reasons to Believe profile and ambassadors, home renovations and donations in Bahia, and Criança Esperança on TV. I led digital content, ambassador mechanics and alignment with offline channels.",
+r:[["1st","share growth in 5 years"],["0","price changes needed"],["8 in 10","Brazilian homes reached by the brand"]],u:"poder-do-somos-omo-unilever-brasil",imp:0,cr:0},
+{id:"mascotas",t:"#MascotasChallenge",cl:"TikTok Spain for Universal, Pets 2",ag:"TikTok Spain",y:2019,role:"Content Manager, Influencer Marketing Strategist",
+ch:"Universal asked TikTok Spain to promote Pets 2 with original, creative creator videos.",
+id2:"One insight sent to 13 TikTokers: what does your pet do when you're not home?",
+r:[["16%","CTR, twice the 8% benchmark"],["13M","video views"],["6K+","user-generated videos"],["2.4M+","impressions in 7 days"],["2M+","engagements"]],u:"mascotaschallenge",imp:15.4,cr:13}
+];
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const $=id=>document.getElementById(id);
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fine=matchMedia("(pointer: fine)").matches;
+const imp=C.reduce((a,c)=>a+c.imp,0),cr=C.reduce((a,c)=>a+c.cr,0);
+$("facts").innerHTML=[["17","years in advertising"],["2000+","creators activated"],["3","awards: Effie Latin America, Effie Brazil and Clube de Criação"]].map(f=>`<div><b>${f[0]}</b><span class="lbl">${f[1]}</span></div>`).join("");
+$("track").innerHTML=C.map((c,i)=>`<button type="button" class="it" data-i="${i}" aria-label="${esc(c.t)}, ${esc(c.cl)}, ${esc(c.y)}. Open case"><div class="fr"><img src="img/${c.id}.jpg" alt="" loading="${i<4?"eager":"lazy"}"></div><div class="nm"><b>${esc(c.t)}</b><span>${String(i+1).padStart(2,"0")}</span></div></button>`).join("");
+/* hover sheet */
+const tip=$("tip"),cur=$("cur");let tx=-999,ty=-999,cx=-999,cy=-999,tOn=false;
+const fillTip=c=>{tip.innerHTML=`<h4>${esc(c.t)}</h4><div class="s">${esc(c.cl)} · ${esc(c.y)}<br>${esc(c.role)}</div><div class="r">${c.r.slice(0,2).map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join("")}</div><div class="cta">Click for the full case →</div>`};
+$("track").addEventListener("pointerover",e=>{const it=e.target.closest(".it");if(!it||e.pointerType!=="mouse")return;fillTip(C[+it.dataset.i]);tip.classList.add("on");tOn=true;cur.classList.add("big")});
+$("track").addEventListener("pointerout",e=>{const it=e.target.closest(".it");if(it&&!it.contains(e.relatedTarget)){tip.classList.remove("on");tOn=false;cur.classList.remove("big")}});
+addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;if(e.pointerType==="mouse")document.documentElement.classList.add("cur")},{passive:true});
+document.addEventListener("pointerover",e=>{if(e.target.closest("a,button:not(.it),summary"))cur.classList.add("big");else if(!e.target.closest(".it"))cur.classList.remove("big")});
+const loopCur=()=>{cx+=(tx-cx)*(reduce?1:.35);cy+=(ty-cy)*(reduce?1:.35);cur.style.transform=`translate3d(${tx}px,${ty}px,0)`;
+ if(tOn){const w=300,h=tip.offsetHeight,x=Math.min(cx+24,innerWidth-w-12),y=Math.min(cy+24,innerHeight-h-12);tip.style.transform=`translate3d(${x}px,${y}px,0)`}
+ requestAnimationFrame(loopCur)};requestAnimationFrame(loopCur);
+/* drawer */
+const dr=$("dr");let cur_i=0,lastFocus=null;
+const openD=i=>{cur_i=(i+C.length)%C.length;const c=C[cur_i];
+ $("dc").innerHTML=`<img src="img/${c.id}.jpg" alt="${esc(c.t)} campaign frame"><span class="lbl">${String(cur_i+1).padStart(2,"0")} / ${C.length}</span><h3 id="dt">${esc(c.t)}</h3>
+ <dl class="meta"><div><dt>Client</dt><dd>${esc(c.cl)}</dd></div><div><dt>Agency</dt><dd>${esc(c.ag)}</dd></div><div><dt>Year</dt><dd>${esc(c.y)}</dd></div><div><dt>My role</dt><dd>${esc(c.role)}</dd></div></dl>
+ <div class="tx"><div><h4>The brief</h4><p>${esc(c.ch)}</p></div><div><h4>The idea</h4><p>${esc(c.id2)}</p></div></div>
+ <div class="res">${c.r.map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join("")}</div>
+ ${c.aw?`<div class="aw">${c.aw.map(a=>`<span>${esc(a)}</span>`).join("")}</div>`:""}
+ <a class="vl" href="https://victoriascarsi.portfolio.site/${c.u}">Watch the case videos ↗</a>`;
+ $("dpn").scrollTop=0;if(!dr.classList.contains("on")){lastFocus=document.activeElement;dr.classList.add("on");document.body.style.overflow="hidden"}$("dx").focus();
+ tip.classList.remove("on");tOn=false};
+const closeD=()=>{dr.classList.remove("on");document.body.style.overflow="";lastFocus&&lastFocus.focus&&lastFocus.focus({preventScroll:true})};
+$("track").addEventListener("click",e=>{const it=e.target.closest(".it");if(it)openD(+it.dataset.i)});
+$("dx").addEventListener("click",closeD);$("dsh").addEventListener("click",closeD);
+$("dp").addEventListener("click",()=>openD(cur_i-1));$("dn").addEventListener("click",()=>openD(cur_i+1));
+addEventListener("keydown",e=>{if(!dr.classList.contains("on"))return;if(e.key==="Escape")closeD();if(e.key==="ArrowRight")openD(cur_i+1);if(e.key==="ArrowLeft")openD(cur_i-1)});
+/* services, manifesto, misc */
+const S=[["Planning & leadership",["AI-Driven","Competitive pitches","Client proposals","Team leadership","Project management"]],["Content strategy",["Editorial territories","Always-on planning","Social for major launches","Social Media"]],["Influencer strategy",["Creator clusters","Casting","Squads and ambassadors","Paid amplification","Measurement"]],["Creative concepts",["Big ideas","Cultural insights","Challenges and mechanics","Brand experiences"]]];
+$("svc").innerHTML=S.map((s,i)=>`<div class="sv"><button type="button" aria-expanded="false" aria-controls="sv${i}" id="svb${i}">${esc(s[0])}</button><ul id="sv${i}" hidden>${s[1].map(x=>`<li>${esc(x)}</li>`).join("<li aria-hidden='true'>·</li>")}</ul></div>`).join("");
+$("svc").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const u=$(b.getAttribute("aria-controls")),o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",!o);u.hidden=o});
+const m=$("mani");m.innerHTML=m.textContent.split(" ").map(w=>`<span class="w">${esc(w)}</span>`).join(" ");
+const words=[...m.querySelectorAll(".w")];
+$("copy").addEventListener("click",async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText("victoriahscarsi@icloud.com");b.textContent="Copied"}catch(_){b.textContent="Select the address"}setTimeout(()=>b.textContent="Copy email",2200)});
+const ld=$("ld");
+if(reduce){ld.remove()}else{
+ const facts=["Born in Canelones, Uruguay","Brazilian, Uruguayan and Italian","In advertising since 2010","Now based in Barcelona"];let p=0;
+ const iv=setInterval(()=>{p=Math.min(100,p+7+Math.floor(Math.random()*9));$("ldn").textContent=p+"%";$("ldf").textContent=facts[Math.min(3,Math.floor(p/26))];if(p>=100){clearInterval(iv);setTimeout(()=>{ld.classList.add("out");setTimeout(()=>ld.remove(),900)},180)}},70);
+ ld.addEventListener("click",()=>{clearInterval(iv);ld.remove()});
+}
+/* hero marquee */
+const rowsEl=[...document.querySelectorAll(".row")];
+rowsEl.forEach(r=>{const set=r.dataset.w.split("|").map(w=>`<span>${esc(w)}</span><em>/</em>`).join("");r.innerHTML=`<div style="display:flex">${set.repeat(4)}</div><div style="display:flex">${set.repeat(4)}</div>`});
+const mq={t:performance.now(),off:rowsEl.map((_,i)=>i*137),boost:0,lastY:scrollY};
+const spin=now=>{const dt=Math.min(64,now-mq.t)/1000;mq.t=now;const y=scrollY;mq.boost=mq.boost*.9+Math.abs(y-mq.lastY)*.9;mq.lastY=y;
+ rowsEl.forEach((r,i)=>{const half=r.scrollWidth/2,d=+r.dataset.dir;mq.off[i]=(mq.off[i]+(70+mq.boost*6)*dt*-d)%half;if(mq.off[i]<0)mq.off[i]+=half;r.style.transform=`translate3d(${-mq.off[i]}px,0,0)`});
+ requestAnimationFrame(spin)};
+if(!reduce)requestAnimationFrame(spin);
+/* header over dark areas */
+const hdr=document.querySelector("header.top"),darks=[$("contact"),$("ld")];
+const hdrTone=()=>{const y=40;const dk=[document.getElementById("contact"),document.getElementById("ld")].some(el=>{if(!el)return false;const r=el.getBoundingClientRect();return r.top<=y&&r.bottom>=y});hdr.classList.toggle("dk",dk);hdr.classList.toggle("sc",scrollY>40)};
+addEventListener("scroll",hdrTone,{passive:true});setInterval(hdrTone,300);
+/* scroll engine */
+const hs=$("hs"),track=$("track"),pinned=()=>matchMedia("(min-width: 901px) and (pointer: fine)").matches;
+const size=()=>{hs.style.height=pinned()?(track.scrollWidth-innerWidth+innerHeight)+"px":""};
+const rows=[...document.querySelectorAll(".row")],photo=$("photo"),divt=$("divt"),frs=[...document.querySelectorAll(".fr img")],its=[...document.querySelectorAll(".it")];
+let q=false;
+const frame=()=>{q=false;const y=scrollY,vh=innerHeight,vw=innerWidth;
+ if(!reduce){
+    const k=Math.min(1,y/vh);photo.style.transform=`translate(-50%,calc(-50% + ${y*.3}px)) scale(${1-k*.12})`;
+  const dr2=divt.parentElement.getBoundingClientRect();divt.style.transform=`translate3d(${-(vh-dr2.top)*.35}px,0,0)`;
+  const mr=m.getBoundingClientRect(),prog=Math.max(0,Math.min(1,(vh*.85-mr.top)/(mr.height+vh*.35)));const n=Math.round(prog*words.length);words.forEach((w,i)=>w.classList.toggle("on",i<n));
+ }
+ if(pinned()){const r=hs.getBoundingClientRect(),len=hs.offsetHeight-vh,p=Math.max(0,Math.min(1,-r.top/len));const dx=p*(track.scrollWidth-vw);
+  track.style.transform=`translate3d(${-dx}px,0,0)`;$("pb").style.width=(p*100)+"%";
+  $("pn").textContent=String(Math.min(C.length,Math.floor(p*C.length)+1)).padStart(2,"0")+" / "+C.length;
+  if(!reduce)its.forEach((it,i)=>{const b=it.getBoundingClientRect();if(b.right<-50||b.left>vw+50)return;const t=(b.left+b.width/2-vw/2)/vw;frs[i].style.transform=`translate3d(${t*-12}%,0,0)`;it.style.transform=`translate3d(0,${t*(i%2?-40:40)}px,0)`})}
+ else{its.forEach(it=>it.style.transform="");frs.forEach(f=>f.style.transform="")}};
+const req=()=>{if(!q){q=true;requestAnimationFrame(frame)}};
+addEventListener("scroll",req,{passive:true});
+addEventListener("resize",()=>{size();req()});
+addEventListener("load",()=>{size();req()});
+size();frame();
+}
+</script>
+</body>
+</html>
